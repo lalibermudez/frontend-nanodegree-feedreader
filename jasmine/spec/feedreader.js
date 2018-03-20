@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it('has a URL', function() {
+        it('has a url', function() {
             for (var i = 0; i < allFeeds.length; i++) {
                 var allFeedsIndex = allFeeds[i];
 
@@ -45,6 +45,14 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('has a name', function() {
+            for (var i = 0; i < allFeeds.length; i++) {
+                var allFeedsIndex = allFeeds[i];
+
+                expect(allFeedsIndex.name).toBeDefined();
+                expect(allFeedsIndex.name).not.toBe(0);
+            };
+        });        
     });
 
 
