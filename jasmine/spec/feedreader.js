@@ -96,6 +96,19 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        var checkEntry = $('.entry');
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+
+        it('should have an entry inside the container', function(done) {
+
+            expect(checkEntry).not.toBe(0);
+            done();
+        });
 
     });
 
