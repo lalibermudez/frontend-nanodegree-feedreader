@@ -32,12 +32,10 @@ $(function() {
          * and that the URL is not empty.
          */
         it('has a url', function() {
-            for (var i = 0; i < allFeeds.length; i++) {
-                var allFeedsIndex = allFeeds[i];
-
-                expect(allFeedsIndex.url).toBeDefined();
-                expect(allFeedsIndex.url).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe(0);
+            });
         });
 
 
@@ -46,12 +44,10 @@ $(function() {
          * and that the name is not empty.
          */
         it('has a name', function() {
-            for (var i = 0; i < allFeeds.length; i++) {
-                var allFeedsIndex = allFeeds[i];
-
-                expect(allFeedsIndex.name).toBeDefined();
-                expect(allFeedsIndex.name).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed)  {
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe(0);
+            });
         });        
     });
 
@@ -65,9 +61,8 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('is hidden', function() {
-            var menuHidden = $('body').hasClass('menu-hidden');
 
-            expect(menuHidden).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -98,9 +93,7 @@ $(function() {
          */
 
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         it('should have an entry inside the container', function(done) {
