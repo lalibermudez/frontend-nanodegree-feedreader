@@ -37,7 +37,7 @@ $(function() {
 
                 expect(allFeedsIndex.url).toBeDefined();
                 expect(allFeedsIndex.url).not.toBe(0);
-            };
+            }
         });
 
 
@@ -51,7 +51,7 @@ $(function() {
 
                 expect(allFeedsIndex.name).toBeDefined();
                 expect(allFeedsIndex.name).not.toBe(0);
-            };
+            }
         });        
     });
 
