@@ -118,5 +118,23 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        var firstFeed,
+            secondFeed;
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                firstFeed = $('.entry-link').attr('href');
+                done();
+            });
+        }); 
+
+        it('should be different from previous feed', function(done) {
+            loadFeed(1, function(){
+                secondFeed = $('.entry-link').attr('href');
+                expect(secondFeed).not.toMatch(firstFeed);
+                done();         
+            });
+        });
     });
 }());
