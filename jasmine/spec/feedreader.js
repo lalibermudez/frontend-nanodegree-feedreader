@@ -96,7 +96,6 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        var entries = $('.feed').children().hasClass('entry');
 
         beforeEach(function(done) {
             loadFeed(0, function() {
@@ -105,9 +104,10 @@ $(function() {
         });
 
         it('should have an entry inside the container', function(done) {
+            var entries = $('.feed').children().hasClass('entry-link');
 
-            expect(entries).toBe(true);
-            done();
+            expect(entries).toBe(true); 
+            done();   
         });
 
     });
