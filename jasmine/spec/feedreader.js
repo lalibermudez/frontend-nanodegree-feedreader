@@ -63,7 +63,6 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('is hidden', function() {
-
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
@@ -118,17 +117,17 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, function() {
-                firstFeed = $('.entry-link').attr('href');
-                done();
+                firstFeed = $('.entry-link').html();
+                loadFeed(1, function() {
+                    secondFeed = $('.entry-link').html();
+                    done();         
+                });
             });
         }); 
 
         it('should be different from previous feed', function(done) {
-            loadFeed(1, function(){
-                secondFeed = $('.entry-link').attr('href');
-                expect(secondFeed).not.toMatch(firstFeed);
-                done();         
-            });
+            expect(secondFeed).not.toMatch(firstFeed);
+            done();
         });
     });
 }());
