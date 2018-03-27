@@ -98,7 +98,7 @@ $(function() {
         });
 
         it('should have an entry inside the container', function(done) {
-            var entries = $('.feed').children().hasClass('entry-link');
+            var entries = $('.feed').find('article').hasClass('entry');
 
             expect(entries).toBe(true); 
             done();   
