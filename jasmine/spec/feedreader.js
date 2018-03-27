@@ -33,8 +33,9 @@ $(function() {
          */
         it('has a url', function() {
             allFeeds.forEach(function(feed) {
+                console.log(feed.url.length);
                 expect(feed.url).toBeDefined();
-                expect(feed.url).not.toBe(0);
+                expect(feed.url.length).not.toBe(0);
             });
         });
 
@@ -44,9 +45,10 @@ $(function() {
          * and that the name is not empty.
          */
         it('has a name', function() {
-            allFeeds.forEach(function(feed)  {
+            allFeeds.forEach(function(feed) {
+                console.log(feed.name);
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(0);
+                expect(feed.name.length).not.toBe(0);
             });
         });        
     });
